@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+// Function to check if a number is a perfect number
+int isPerfect(int num) {
+    int sum = 1; // Start with 1 as all numbers are divisible by 1
+
+    // Find divisors up to half of the number
+    for (int i = 2; i <= num / 2; i++) {
+        if (num % i == 0) {
+            sum += i;
+        }
+    }
+
+    // Check if the sum of divisors is equal to the original number
+    return (sum == num);
+}
+
+int main() {
+    printf("Three-digit perfect numbers:\n");
+
+    // Iterate through all three-digit numbers
+    for (int i = 100; i <= 999; i++) {
+        if (isPerfect(i)) {
+            printf("%d\n", i);
+        }
+    }
+
+    return 0;
+}
